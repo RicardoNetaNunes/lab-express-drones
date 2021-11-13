@@ -1,2 +1,20 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+<a href="/drones/list">List of Drones Available</a>
+<br>
+<a href="/drones/create">Create a new Drone</a>
+
+{{#each drones}}
+ 
+  <p>Name : {{this.name}}</p>
+  <p>Propellers : {{this.propellers}}</p>
+  <p>MaxSpeed : {{this.maxSpeed}}</p>
+  <form action="/drones/{{drone._id}}/edit" method="GET">
+  <button type="submit" class="btn btn-warning">Edit</button>
+</form>
+  <br>
+
+{{/each}}
+
+
