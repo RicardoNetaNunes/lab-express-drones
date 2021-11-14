@@ -1,18 +1,39 @@
+
+
+
 <h2>Available drones</h2>
 <p>Drones of the day</p>
 
-{{#each drones}}
- 
-  <p>Name : {{this.name}}</p>
-  <p>Propellers : {{this.propellers}}</p>
-  <p>MaxSpeed : {{this.maxSpeed}}</p>
-  <form action="/drones/{{this._id}}/edit" method="GET">
-  <button type="submit" class="btn btn-warning">Edit</button>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">DroneId</th>
+      <th scope="col">Drone Name</th>
+      <th scope="col">Number of Propellers</th>
+      <th scope="col">MaxSpeed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each drones}}
+    <tr>
+      <th scope="row">{{_id}} </th>
+      <td>{{this.name}}</td>
+      <td>{{this.propellers}}</td>
+      <td>{{this.maxSpeed}}</td>
+      <td> 
+<form action="/drones/{{this._id}}/edit" method="GET">
+  <button type="submit" class="btn btn-warning customB">Edit</button>
 </form>
 <form action="/drones/{{this._id}}/delete" method="POST">
-  <button class="btn btn-danger">Delete</button>
+   <button class="btn btn-danger customB1">Delete</button>
 </form>
 
-  <br>
-
+      </td>
+    </tr>
 {{/each}}
+
+    
+  </tbody>
+</table>
